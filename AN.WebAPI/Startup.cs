@@ -23,14 +23,14 @@ namespace AN.WebAPI
         {
             services.AddDbContext<AppDbContext>(builder =>
             {
-                var connectionStr = Configuration.GetConnectionString("MySQLConnectionString");
-                builder.UseMySQL(connectionStr);
+                var connectionStr = Configuration.GetConnectionString("SQLSConnectionString");
+                builder.UseSqlServer(connectionStr);
             });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AN.WebAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AN.WebAPI", Version = "v1"});
             });
         }
 

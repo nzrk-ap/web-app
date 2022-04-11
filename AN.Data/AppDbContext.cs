@@ -13,13 +13,20 @@ namespace AN.Data
 
         public DbSet<City> Cities { get; set; }
 
+        public DbSet<Position> Positions { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .Entity<Department>()
                 .HasKey(i => i.Id);
 
-            modelBuilder.Entity<City>()
+            modelBuilder
+                .Entity<City>()
+                .HasKey(i => i.Id);
+
+            modelBuilder
+                .Entity<Position>()
                 .HasKey(i => i.Id);
         }
     }
